@@ -1,0 +1,514 @@
+
+/* root */
+
+:root {
+    --default-bg: #F5F5F5;
+    --default-color: #5A5A5A;
+    --key-color: #6B6B6B;
+    --white: #fff;
+    --dim: rgba(0,0,0,0.6);
+}
+
+/* mixin */
+
+@mixin text{
+    font-family: 'Pretendard-Regular';
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--default-color);
+}
+
+@mixin title{
+    font-family: 'Pretendard-Regular';
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--default-color);
+}
+
+@mixin lineTitle{
+    @include center;
+    width:100%;
+    font-family: 'Pretendard-Regular';
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #0e0e0e;
+    &:after{
+        display:block;
+        margin-left:1rem;
+        flex: 1 1 0;
+        border-top: 1px solid #0e0e0e;
+        content: '';
+    }
+}
+
+@mixin lineTitleRev{
+    @include lineTitle;
+    flex-direction: row-reverse;
+    &:after{
+        margin-left:0;
+        margin-right: 1rem;
+    }
+}
+
+@mixin upTitle{
+    padding: 0.8rem 0;
+    font-family: "Pretendard-Regular";
+    font-size: 2rem;
+    font-weight: 400;
+    color: #0e0e0e;
+    letter-spacing: -0.08rem;
+    position: relative;
+    &:before{
+        @include bef;
+        width:3rem;
+        height:3px;
+        background: #dedede;
+    }
+}
+
+@mixin center{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin centerVertical{
+    display:flex;
+    align-items: center;
+}
+
+@mixin centerTop{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin centerPos{
+    position:absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin bef{
+    display: block;
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    content: '';
+}
+
+@mixin befTitle{
+    @include title;
+    position: relative;
+    padding-left: 0.8rem;
+    &:before{
+        position: absolute;
+        top: 50%;
+        left:0;
+        content: '';
+        width: 0.2rem;
+        height: 88%;
+        transform: translateY(-50%);
+        background: var(--key-color);
+    }
+}
+
+@mixin befBar($color){
+    display:flex;
+    color: $color;
+    span ~ span{
+        position: relative;
+        margin-left: 0.5rem;
+        padding-left: 0.5rem;
+        &:before{
+            @include bef;
+            width:1px;
+            height:84%;
+            top:2%;
+            background: $color;
+        }
+    }
+}
+
+@mixin dim{
+    position: fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    width:100%;
+    height:100%;
+    background: var(--dim);
+    z-index: 999;
+}
+
+@mixin layout{
+    max-width: 1023px;
+    margin: 0 auto;
+}
+
+@mixin flexDown{
+    display:flex;
+    flex-flow:row wrap;
+}
+
+@mixin gallary($marginLeft, $column){
+    display:flex;
+    flex-flow: row wrap;
+    margin-left: -($marginLeft);
+    margin-top: -($marginLeft);
+    li{
+        width: calc((100% - ($marginLeft*$column))/$column);
+        margin-left: $marginLeft;
+        margin-top: $marginLeft;
+    }
+}
+
+@mixin imgPad{
+    position: relative;
+    height: 13.888rem;
+    img{
+        @include centerPos;
+        max-width: 88%;
+        max-height: 88%;
+        object-fit: contain;
+    }
+}
+
+@mixin imgFull{
+    overflow:hidden;
+    position: relative;
+    height:0;
+    padding-top: 100%;
+    img{
+        position: absolute;
+        width:100%;
+        height:100%;
+        top:0;
+        left:0;
+        object-fit: cover;
+    }
+}
+
+@mixin ellipseBox($boxHeight,$rowNumber){
+    overflow: hidden;
+    display: -webkit-box;
+    height: $boxHeight;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-wrap: break-word;
+    -webkit-line-clamp: $rowNumber;
+    -webkit-box-orient: vertical;
+}
+
+@mixin ellipse{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin video{
+    position: relative;
+    width:100%;
+    height:0;
+    padding-top: 56.5%;
+    iframe{
+        position: absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+    }
+}
+
+@mixin videoSrc{
+    position: relative;
+    width:100%;
+    height:0;
+    padding-top: 56.5%;
+    video{
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+    }
+}
+
+@mixin search($searchHeight, $btnWidth){
+    display:flex;
+    height: $searchHeight;
+    input{
+        width: calc(100% - $btnWidth);
+        height: 100%;
+        padding: 0 0.7rem;
+    }
+    span{
+        @include center;
+        width: $btnWidth;
+        height: 100%;
+        margin-left: 0.2rem;
+        cursor:pointer; 
+    }
+}
+
+
+@mixin list($titleWidth){
+    li{
+        display:flex;
+        width:100%;
+        b{
+            width: $titleWidth;
+            padding-right:2rem;
+            font-size:1.1rem;
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--default-color);
+        }
+        span{
+            width: calc(100% - $titleWidth);
+            font-size:1.1rem;
+            font-weight: 400;
+            line-height: 1.3;
+        }
+    }
+    li ~ li{
+        margin-top: 0.4rem;
+    }
+}
+
+@mixin barList(){
+    li{
+        position: relative;
+    }
+    li ~ li{
+        margin-left: 0.5rem;
+        padding-left: 0.5rem;
+        &:before{
+            @include bef;
+            width:1px;
+            height: 80%;
+            top: 6%;
+            background: var(--default-color);
+        }
+    }
+}
+
+@mixin dotList(){
+    li{
+        display:flex;
+        position: relative;
+        padding-left: 0.8rem;
+        &:before{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 0.2rem;
+            height: 0.2rem;
+            content: '';
+            transform: translateY(-50%);
+            background: var(--default-color);
+            border-radius: 50%;
+        }
+    }
+    li ~ li{
+        margin-top: 0.4rem;
+    }
+}
+
+@mixin dashList(){
+    @include dotList;
+    li{
+        &:before{
+            width: 0.3rem;
+            height: 1px;
+            border-radius: 0;
+        }
+    }
+}
+
+@mixin innerDot(){
+    padding-left:0;
+    &:before{
+        display: none;
+    }
+    > b{
+        position: relative;
+        height: 1.6rem;
+        padding-left: 0.8rem;
+        &:before{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 0.2rem;
+            height: 0.2rem;
+            content: '';
+            transform: translateY(-50%);
+            background: var(--default-color);
+            border-radius: 50%;
+        }
+    }
+}
+
+@mixin innerDash(){
+    @include innerDot;
+    > b{
+        &:before{
+            width: 0.3rem;
+            height: 1px;
+            border-radius: 0;
+        }
+    }
+}
+
+@mixin buttonRow(){
+    display:flex;
+    flex-flow: row wrap;
+    margin: 0.25rem -0.25rem;
+    li{
+        flex: 1 0 0;
+        min-width: 7rem;
+        margin: 0.25rem;
+    }
+}
+
+@mixin check(){
+    input[type=checkbox]{
+        display:none;
+    }
+    input[type=checkbox] + label{
+        display: inline-block;
+        position: relative;
+        padding-left: 1.5rem;
+        font-size: 0.933rem;
+        line-height: 1.25;
+        color:#333;
+        cursor: pointer;
+        &:before{
+            content:"\f0c8";
+            position: absolute;
+            top:0;
+            left:0;
+            font-family: 'Font Awesome 5 Free';
+        }
+    }
+    input[type=checkbox]:checked + label:before{
+        content: "\f14a";
+    }
+}
+
+@mixin radio(){
+    input[type=radio]{
+        display:none;
+    }
+    input[type=radio] + label{
+        display: inline-block;
+        position: relative;
+        padding-left: 1.1rem;
+        font-size: 0.933rem;
+        line-height: 1.25;
+        color:#333;
+        cursor: pointer;
+        &:before{
+            content:"\f0c8";
+            position: absolute;
+            top:0;
+            left:0;
+            font-family: 'Font Awesome 5 Free';
+        }
+    }
+    input[type=radio]:checked + label:before{
+        content: "\f14a";
+    }
+}
+
+@mixin radioBtn(){
+    input[type=radio]{
+        display:none;
+    }
+    input[type=radio] + label{
+        position: relative;
+        em{
+            width: 100%;
+            height: auto;
+            padding: 1rem 0.3rem;
+            cursor:pointer;
+        }
+        span{
+            position: absolute;
+            top:0;
+            left:0;
+            text-align: center;
+            background: skyblue;
+        }
+    }
+    input[type=radio]:checked + label{
+        span{
+            background: blue;
+        }
+    }  
+}
+
+@mixin tab(){
+    display:flex;
+    flex-flow: row wrap;
+    border-bottom: 1px solid var(--key-color);
+    li{
+        min-width: 7rem;
+        margin-left: -1px;
+        margin-bottom: -1px;
+        padding: 0.7rem 0;
+        font-size: 1rem;
+        text-align: center;
+        
+        border:1px solid var(--key-color);
+    }
+    li.active{
+        color: var(--white);
+        background: var(--key-color);
+    }
+}
+
+
+@mixin scrollX($minWidth){
+    overflow:auto;
+    ul{
+        width: $minWidth;
+    }
+}
+
+// @mixin animationmixin($type:'animation', $style:'', $duration:1s) {
+    
+//     @keyframes #{$type}-#{$style} { // register animation
+//         0% { opacity: 1;  transform: none; } // reset style
+//         100% { @content; } // custom style
+//     }
+    
+//     .#{$style} { // add '.section'
+//         &-enter-active, &-leave-active { // add '.section-enter-active', ...
+//             transition: #{$duration};
+//         }
+//         &-enter, &-leave-to {
+//             animation: #{$type}-#{$style} #{$duration}; // use animation
+//         }
+//         &-leave, &-enter-to {
+//             animation: #{$type}-#{$style} #{$duration} reverse; // use animation in reverse 
+//         }
+//     }
+// }
+
+@mixin tablet{ 
+    @media (max-width: 1023px){
+        @content;
+    }
+}
+
+@mixin mobile{
+    @media (max-width: 767px){
+        @content;
+    }
+} 
+
