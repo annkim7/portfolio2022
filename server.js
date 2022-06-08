@@ -1,20 +1,30 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const MongoClient = require('mongodb').MongoClient;
 
-app.listen(8080, function () {
-  console.log('listening on 8080')
-});
+require('dotenv').config()
+
+var db;
+MongoClient.connect(process.env.DB_URL, { useUnifiedTopology: true }, function(err, client){
+  if (err) return console.log(err);
+
+  db = client.db('portfolio');
+
+  app.listen(process.env.PORT, function(){
+    console.log('I am listening....')
+  });
+})
 
 app.use(express.static(path.join(__dirname, 'portfolio2022/build')));
 
-app.get('/', function (요청, 응답) {
-  응답.sendFile(path.join(__dirname, '/portfolio2022/build/index.html'));
+app.get('/', function (request, response) {
+  response.sendFile(path.join(__dirname, '/portfolio2022/build/index.html'));
 });
 
 
 
 
-app.get('*', function (요청, 응답) {
-  응답.sendFile(path.join(__dirname, '/react-project/build/index.html'));
+app.get('*', function (request, response) {
+  response.sendFile(path.join(__dirname, '/react-project/build/index.html'));
 });
