@@ -9,6 +9,16 @@
     --dim: rgba(0,0,0,0.6);
 }
 
+/* variables */
+$white: #fff;
+$purple: #6449EF;
+$purpleLight: #E9EBF2;
+$gray: #aeaeae;
+$grayLight: #a6a6a6;
+$grayVeryLight: #f5f5f5;
+/* function */
+
+
 /* mixin */
 
 @mixin text{
@@ -480,25 +490,6 @@
     }
 }
 
-// @mixin animationmixin($type:'animation', $style:'', $duration:1s) {
-    
-//     @keyframes #{$type}-#{$style} { // register animation
-//         0% { opacity: 1;  transform: none; } // reset style
-//         100% { @content; } // custom style
-//     }
-    
-//     .#{$style} { // add '.section'
-//         &-enter-active, &-leave-active { // add '.section-enter-active', ...
-//             transition: #{$duration};
-//         }
-//         &-enter, &-leave-to {
-//             animation: #{$type}-#{$style} #{$duration}; // use animation
-//         }
-//         &-leave, &-enter-to {
-//             animation: #{$type}-#{$style} #{$duration} reverse; // use animation in reverse 
-//         }
-//     }
-// }
 
 @mixin tablet{ 
     @media (max-width: 1023px){
