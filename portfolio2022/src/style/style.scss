@@ -6,7 +6,7 @@ html,body{
     width:100%;
     height:100%;
     font-size: 100%;
-    font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    font-family: $mainFont;
 }
 
 body{
@@ -18,16 +18,19 @@ body{
     height:100%;
 }
 .App{
+    overflow:hidden;
     display:grid;
     grid-template-columns: 1fr 6fr;
     height:100%;
     
 }
 
+/** H E A D E R **/
+
 header{
     position: relative;
     background: $white;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    box-shadow: $boxShadow;
     z-index:1;
 }
 
@@ -40,38 +43,38 @@ header .title{
         position:relative;
         padding:0.3rem 0 0.3rem 3rem;
         font-size:1.05rem;
-        font-family: 'SuseongDotum';
+        font-family: $logoFont;
         &:before{
             @include bef;
             width:2.3rem;
             height:2.3rem;
             border-radius: 100%;
-            background: linear-gradient(130deg, rgba(65,111,233,1) 0%, rgba(100,71,240,1) 100%);
+            background: $gradientBtoP;
         }
         b{
             margin-top:0.13rem;
             font-size:0.85rem;
-            font-family: Pretendard;
+            font-family: $mainFont;
             color:#ababab;
         }
     }
 }
 
-header .content{
-    padding:1.6rem 1.8rem;
-    
-}
-
-
 .nav-list{
     li{
         position: relative;
-        padding: 0.938rem 0 0.938rem 2.4rem;
+        padding: 1.2rem 0 1.2rem 4.2rem;
         text-align: left;
+        font-size: 1.05rem;
+        font-weight: 400;
+        letter-spacing: -0.045em;
         color: $grayLight;
+        cursor: pointer;      
         &:before{
             @include bef;            
-            @include centerVertical;            
+            @include centerVertical;
+            width:auto;
+            padding-left:1.8rem;
             font-family: uicons-solid-rounded !important;
             font-style: normal;
             font-weight: normal !important;
@@ -79,7 +82,25 @@ header .content{
             text-transform: none;
             line-height: 1;
             -webkit-font-smoothing: antialiased;
-            content: "\f2da";
+            content: "\f2da";    
+        }
+        &:after{
+            @include bef;
+            display:none;
+            width:0.2rem;
+            left:auto;
+            right:0;
+            background-color: $purpleLight;
+        }
+        &:hover{
+            color: $purpleLight;
+            background-color: $purpleVeryLight;
+        }
+        &:hover:before{
+            font-family: uicons-regular-rounded !important;
+        }
+        &:hover:after{
+            display: block;
         }
     }
     li:nth-of-type(2){
@@ -100,7 +121,64 @@ header .content{
     }
 }
 
+/** C O N T E N T **/
+
 .wrap{
     position: relative;
-    background: $purpleLight;
+    padding: 1.6rem 3.125rem;
+    background: $purpleVVeryLight;
+}
+
+.year{
+    text-align: right;
+    .year-btn{
+        display: inline-block;
+        padding: 0.625rem 2rem;
+        font-size: 0.8rem;
+        letter-spacing: -0.045em;
+        color:$white;
+        background: $gradientBtoP;
+        border-radius: 0.625rem;
+    }
+}
+
+.main-title{
+    margin:1.2rem 0 2rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    text-align: left;
+}
+
+.box-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1.4rem;
+    li{
+        position:relative;
+        padding: 2rem 1.6rem 2rem 5.2rem;
+        background: #fff;
+        border-radius: 1.25rem;
+        box-shadow: $boxShadow;
+        text-align: left;
+        &:before{
+            @include bef;
+            @include centerTop;
+            width:3rem;
+            height:3rem;
+            margin-left:1.2rem;
+            background: url('../images/skill_icon_01.gif') no-repeat center center/cover;
+        }
+        b{
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: $grayLight;
+        }
+        span{
+            margin-top:0.85rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+    }
 }

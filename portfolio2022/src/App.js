@@ -1,27 +1,32 @@
-// import logo from './logo.svg';
 import './App.css';
 import './style/style.scss';
+import Header from './components/header.js';
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <div className="title">
-          <h1 className="logo">Portfolio 2022<b>Ann Kim</b></h1>
-        </div>
-        <div className="content">
-          <nav>
-            <ul className="nav-list">
-              <li>Home</li>
-              <li>List</li>
-              <li>Github</li>
-              <li>Notion</li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+      <Header/>
+
       <div className="wrap">
-        content
+        <div class="year">
+          <span class="year-btn">2022</span>
+        </div>
+        <section>
+          <h2 class="main-title">Skills</h2>
+          <div class="content">
+              <ul class="box-list">
+                <li><b>Layout Design</b><span>주어진 디자인 시안 없이 전체 스타일을 해치지 않는 범위 내에서의 비슷한 스타일의 버튼, 검색바 등 디자인뿐만 아니라 </span></li>
+                <li><b>Skilled</b><span>주어진 디자인 시안 없이 전체 스타일을 해치지 않는 범위 내에서의 비슷한 스타일의 버튼, 검색바 등 디자인뿐만 아니라</span></li>
+                <li><b>Communication</b><span>주어진 디자인 시안 없이 전체 스타일을 해치지 않는 범위 내에서의 비슷한 스타일의 버튼, 검색바 등 디자인뿐만 아니라</span></li>
+              </ul>
+          </div>
+        </section>
+        <section>
+          <h2 class="main-title">History</h2>
+          <div class="content">
+            
+          </div>
+        </section>
       </div>
     </div>
   );
