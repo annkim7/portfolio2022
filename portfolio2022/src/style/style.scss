@@ -73,15 +73,9 @@ header .title{
         &:before{
             @include bef;            
             @include centerVertical;
+            @include flaticon(uicons-solid-rounded);
             width:auto;
             padding-left:1.8rem;
-            font-family: uicons-solid-rounded !important;
-            font-style: normal;
-            font-weight: normal !important;
-            font-variant: normal;
-            text-transform: none;
-            line-height: 1;
-            -webkit-font-smoothing: antialiased;
             content: "\f2da";    
         }
         &:after{
@@ -180,5 +174,11 @@ header .title{
             font-weight: 500;
             line-height: 1.2;
         }
+    }
+    li:nth-of-type(2):before{
+        background-image: url('../images/skill_icon_02.gif');
+    }
+    li:nth-of-type(3):before{
+        background-image: url('../images/skill_icon_03.gif');
     }
 }

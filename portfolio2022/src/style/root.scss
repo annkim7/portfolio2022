@@ -497,6 +497,16 @@ $boxShadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6
     }
 }
 
+@mixin flaticon($iconWeight){
+    font-family: $iconWeight !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+
 
 @mixin tablet{ 
     @media (max-width: 1023px){
