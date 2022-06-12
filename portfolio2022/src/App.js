@@ -11,7 +11,7 @@ function App() {
         <div class="year">
           <span class="year-btn">2022</span>
         </div>
-        <section>
+        <section class="skill-area">
           <h2 class="main-title">Skills</h2>
           <div class="content">
               <ul class="box-list">
@@ -21,10 +21,31 @@ function App() {
               </ul>
           </div>
         </section>
-        <section>
+        <section class="history-area">
           <h2 class="main-title">History</h2>
           <div class="content">
-            
+              <div class="full-box">
+                <article class="chart-box">
+                  <ul class="x-axis">
+                    <li>10</li>
+                    <li>20</li>
+                    <li>30</li>
+                    <li>40</li>
+                    <li>50</li>
+                    <li>60</li>
+                    <li>70</li>
+                    <li>80</li>
+                    <li>90</li>
+                    <li>100</li>
+                  </ul>
+                  <ul class="chart-list">
+                    <li>2020</li>
+                    <li>2021</li>
+                    <li>2022</li>
+                  </ul>
+                </article>
+                
+              </div>
           </div>
         </section>
       </div>

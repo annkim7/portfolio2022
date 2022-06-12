@@ -507,6 +507,14 @@ $boxShadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6
     -webkit-font-smoothing: antialiased;
 }
 
+@mixin shadowBox(){
+    position:relative;
+    padding: 2rem 1.6rem 2rem;
+    background: #fff;
+    border-radius: 1.25rem;
+    box-shadow: $boxShadow;
+}
+
 
 @mixin tablet{ 
     @media (max-width: 1023px){
