@@ -26,22 +26,16 @@ function App() {
           <div class="content">
               <div class="full-box">
                 <article class="chart-box">
-                  <ul class="x-axis">
-                    <li>10</li>
-                    <li>20</li>
-                    <li>30</li>
-                    <li>40</li>
-                    <li>50</li>
-                    <li>60</li>
-                    <li>70</li>
-                    <li>80</li>
-                    <li>90</li>
-                    <li>100</li>
-                  </ul>
-                  <ul class="chart-list">
+                  <ul class="x-axis">{ Xaxis() }</ul>
+                  <ul class="y-axis">
                     <li>2020</li>
                     <li>2021</li>
                     <li>2022</li>
+                  </ul>
+                  <ul class="chart-list">
+                    <li>CSS</li>
+                    <li>JQuery, Vanilla</li>
+                    <li>Vue, React, Node</li>
                   </ul>
                 </article>
                 
@@ -51,6 +45,14 @@ function App() {
       </div>
     </div>
   );
+}
+
+function Xaxis(){
+  var array = [];
+  for(var i = 0; i<10; i++){
+    array.push(<li></li>);
+  }
+  return array;
 }
 
 export default App;

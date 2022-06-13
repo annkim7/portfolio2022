@@ -188,22 +188,75 @@ section ~ section{
     @include shadowBox;
 }
 
+
+.chart-box{
+    position: relative;
+    padding:0 3.5rem;
+    font-size: 0.8rem;
+    color:$grayLight;
+    .y-axis{
+        position: absolute;
+        top:1.6rem;
+        left:0;
+        li{
+            margin-top:0.3rem;
+            line-height: 1.6rem;
+        }
+    }
+}
+
 .chart-box .x-axis{
     display: grid;
+    position: relative;
     grid-template-columns: repeat(10, 1fr);
+    font-size: 0.8rem;
+    color:$grayLight;
     text-align: right;
+    &:before{
+        @include bef;
+        top: 0.85rem;
+        height:500%;
+        border-left:1px dashed $grayLight;
+    }
+    &:after{
+        @include bef;
+        width:1px;
+        left: -0.25rem;
+        content: '0';
+    }
     li{
-        border-right: 1px solid #000;
+        position: relative;
+        height:1rem;
+        &:before{
+            @include bef;
+            top: 0.85rem;
+            height:500%;
+            border-right:1px dashed $grayLight;
+        }
+        &:after{
+            @include bef;
+            left: 0.45rem;
+            content: '';
+        }
+    }
+    @for $i from 1 to 11{
+        li:nth-of-type(#{$i}):after{
+            content:'#{$i*10}';
+        }
     }
     
 }
 
+
 .chart-box .chart-list{
     display: grid;
-    grid-template-columns: repeat(100, 1fr);
-    grid-auto-flow: column dense;
+    margin-top:0.6rem;
+    grid-template-columns: repeat(99, 1fr);
+    font-size: 1.1rem;
+    line-height: 1.6rem;
     li{
-        grid-column: 1 / 26;
+        margin-top:0.3rem;
+        grid-column: 1 / 100;
         background: $purpleVeryLight;
     }
     li:nth-of-type(2){
