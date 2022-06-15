@@ -61,7 +61,7 @@ header .title{
 }
 
 .nav-list{
-    li{
+    li a{
         position: relative;
         padding: 1.2rem 0 1.2rem 4.2rem;
         text-align: left;
@@ -97,18 +97,18 @@ header .title{
             display: block;
         }
     }
-    li:nth-of-type(2){
+    li:nth-of-type(2) a{
         &:before{
             content: "\f25c";
         }
     }
-    li:nth-of-type(3){
+    li:nth-of-type(3) a{
         &:before{
             font-family: uicons-brands !important;
             content: "\f159";
         }
     }
-    li:nth-of-type(4){
+    li:nth-of-type(4) a{
         &:before{
             content: "\f1d1";
         }
@@ -174,6 +174,7 @@ section ~ section{
             font-size: 0.9rem;
             font-weight: 500;
             line-height: 1.2;
+            color: $black;
         }
     }
     li:nth-of-type(2):before{
@@ -186,6 +187,8 @@ section ~ section{
 
 .full-box{
     @include shadowBox;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 
@@ -215,7 +218,7 @@ section ~ section{
     &:before{
         @include bef;
         top: 0.85rem;
-        height:500%;
+        height:700%;
         border-left:1px dashed $grayLight;
     }
     &:after{
@@ -230,7 +233,7 @@ section ~ section{
         &:before{
             @include bef;
             top: 0.85rem;
-            height:500%;
+            height:700%;
             border-right:1px dashed $grayLight;
         }
         &:after{
@@ -250,19 +253,46 @@ section ~ section{
 
 .chart-box .chart-list{
     display: grid;
+    position: relative;
     margin-top:0.6rem;
     grid-template-columns: repeat(99, 1fr);
     font-size: 1.1rem;
     line-height: 1.6rem;
+    z-index: 1;
     li{
         margin-top:0.3rem;
         grid-column: 1 / 100;
         background: $purpleVeryLight;
+        font-size: 0.9rem;
+        color:$black;
+        cursor: pointer;
     }
     li:nth-of-type(2){
-        grid-column: 24 / 86;
+        grid-column: 1 / 86;
     }
     li:nth-of-type(3){
-        grid-column: 14 / 100;
+        grid-column: 1 / 80;
+    }
+    li.on{
+        background: $purpleLight;
+        color:$white;
+    }
+}
+
+.sub-title{
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: left;
+    color: $gray;
+}
+
+.career-box{
+    text-align: left;
+    .career{
+        margin-top:0.85rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        line-height: 1.2;
+        color:$black;
     }
 }
