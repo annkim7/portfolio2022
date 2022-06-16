@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import { useSelector } from "react-redux"
 
 function Home() {
 
     let [tab, setTab] = useState(false);
-  
+
 
     return (
         <>
@@ -30,7 +31,7 @@ function Home() {
                 </ul>
                 <ul className="chart-list">
                   <li onClick={()=>setTab(!tab)}>CSS</li>
-                  <li>JQuery, Vanilla</li>
+                  <li onClick={()=>Test()}>JQuery, Vanilla</li>
                   <li>Vue, React, Node</li>
                 </ul>
               </article>
@@ -65,7 +66,13 @@ function Home() {
       )
     }
 
-    
+    function Test(){
+      let a = useSelector((state) => { return state } )
+      console.log(a)
+      return(
+        <div></div>
+      )
+    }
   }
 
   
