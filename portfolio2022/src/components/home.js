@@ -3,10 +3,14 @@ import { useSelector } from "react-redux"
 
 function Home() {
 
-    let [tab, setTab] = useState(false);
-
+    
+let [tab, setTab] = useState(false);
+let a = useSelector((state) => { return state } )
+console.log(a)
 
     return (
+
+      
         <>
         <section className="skill-area">
         <h2 className="main-title">Skills</h2>
@@ -31,7 +35,7 @@ function Home() {
                 </ul>
                 <ul className="chart-list">
                   <li onClick={()=>setTab(!tab)}>CSS</li>
-                  <li onClick={()=>Test()}>JQuery, Vanilla</li>
+                  <li>JQuery, Vanilla</li>
                   <li>Vue, React, Node</li>
                 </ul>
               </article>
@@ -43,8 +47,11 @@ function Home() {
             </div>
         </div>
       </section>
+
+      
       
       </>
+      
     );
 
     function Xaxis(){
@@ -66,13 +73,6 @@ function Home() {
       )
     }
 
-    function Test(){
-      let a = useSelector((state) => { return state } )
-      console.log(a)
-      return(
-        <div></div>
-      )
-    }
   }
 
   
