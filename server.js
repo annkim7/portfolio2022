@@ -16,6 +16,10 @@ MongoClient.connect(process.env.DB_URL, { useUnifiedTopology: true }, function(e
   });
 })
 
+app.use(express.json());
+var cors = require('cors');
+app.use(cors());
+
 app.use(express.static(path.join(__dirname, 'portfolio2022/build')));
 
 app.get('/', function (request, response) {

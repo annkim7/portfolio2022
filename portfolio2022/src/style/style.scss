@@ -296,3 +296,7 @@ section ~ section{
         color:$black;
     }
 }
+
+.list-box{
+    @include shadowBox;
+}
