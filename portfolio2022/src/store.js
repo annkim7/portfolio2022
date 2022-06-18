@@ -1,6 +1,14 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
 
 
+// let test = axios.get('/list').then((결과)=>{
+//     console.log(결과.data)
+// })
+// .catch(()=>{
+//     console.log('실패함')
+// })
+
+
 let career = createSlice({
     name : 'career',
     initialState : [
@@ -10,8 +18,14 @@ let career = createSlice({
     ]
 })
 
+// let testA = createSlice({
+//     name : "testA",
+//     initialState : test
+// })
+
 export default configureStore({
     reducer: {
-        career : career.reducer
+        career : career.reducer,
+        // testA : testA.reducer
     }
 })

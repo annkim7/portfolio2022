@@ -26,7 +26,12 @@ app.get('/', function (request, response) {
   response.sendFile(path.join(__dirname, '/portfolio2022/build/index.html'));
 });
 
-
+app.get('/list', function(request, response){
+  db.collection('list').find().toArray(function(err, client){
+    console.log(client);
+    response.json(client);
+  })
+})
 
 
 app.get('*', function (request, response) {
