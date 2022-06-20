@@ -299,4 +299,25 @@ section ~ section{
 
 .list-box{
     @include shadowBox;
+    
+    ul{
+        border-bottom: 1px solid $purpleVVeryLight;
+    }
+    li{
+        display: grid;
+        padding: 1.1rem 1.4rem;
+        grid-template-columns: 1fr 2fr 3fr;
+        border-top: 1px solid $purpleVVeryLight;
+        text-align: left;
+        color: $grayLight;
+        font-size: 0.9rem;
+        cursor: pointer;
+    }
+    li.head{
+        color: $black;
+        background-color: $purpleVeryLight;
+    }
+    li:hover{
+        background-color: $grayVeryLight;
+    }
 }
