@@ -11,7 +11,7 @@ function Header() {
             <ul className="nav-list">
               <li><Link to="/">Home</Link></li>
               <li><Link to="/list">List</Link></li>
-              <li><Link to="/">Github</Link></li>
+              <li><a href=" " onClick={()=>window.open('https://github.com/annkim7','_blank')}>Github</a></li>
               <li><Link to="/">Notion</Link></li>
             </ul>
           </nav>
