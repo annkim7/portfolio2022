@@ -1,19 +1,30 @@
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import axios from 'axios';
-import {useState, useEffect} from 'react';
+// import {useState, useEffect} from 'react';
+import { useDispatch } from "react-redux"
+import { setList } from "../store.js"
 
 function List() {
   
-let [list, setList] = useState([]);
+// let [list, setList] = useState([]);
+let dispatch = useDispatch();
 
-useEffect(()=>{
-  axios.get('/list').then((결과) => {
-       setList(결과.data)
-       console.log(결과.data)
+axios.get('/list').then((결과) => {
+    dispatch(setList(결과.data));
+    // console.log(결과.data)
   }).catch(()=>{
-       console.log('실패')
-  })
-}, [])
+  console.log('실패')
+})
+
+let list = useSelector((state) => { return state.list } )
+
+// useEffect(()=>{
+//   axios.get('/list').then((결과) => {
+//       console.log(결과.data)
+//   }).catch(()=>{
+//     console.log('실패')
+//   })
+// }, [])
 
 
   return (

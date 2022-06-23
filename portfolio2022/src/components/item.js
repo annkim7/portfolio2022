@@ -3,8 +3,6 @@ import axios from "axios";
 
 // initial state
 export const initialState = {
-  loading: false,
-  error: false,
   items: [],
 };
 
@@ -13,16 +11,8 @@ const itemSlice = createSlice({
   name: "items",
   initialState,
   reducers: {
-    setLoading: (state) => {
-      state.loading = true;
-    },
     setItems: (state, { payload }) => {
-      state.loading = false;
-      state.error = false;
       state.items = payload;
-    },
-    setError: (state) => {
-      state.error = true;
     },
   },
 });
@@ -38,7 +28,7 @@ export default itemSlice.reducer;
 
 // set up axios - simple json-server prototype config here
 const api = axios.create({
-  baseURL: "http://localhost:3000/",
+  baseURL: "http://localhost:8080/",
   withCredentials: false,
   headers: {
     Accept: "application/json",
@@ -50,7 +40,7 @@ const api = axios.create({
 export function fetchItems() {
   return async (dispatch) => {
     api
-      .get("/items")
+      .get("/list")
       .then((response) => {
         dispatch(setItems(response.data));
       })
