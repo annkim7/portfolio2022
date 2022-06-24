@@ -15,11 +15,25 @@ let list = createSlice({
     initialState : [],
     reducers: {
         setList: (state) => {
-            console.log(state);
             return state
         },
     }
 })
+
+let user = createSlice({
+    name : 'user',
+    initialState : [],
+    reducers: {
+        changeName(state, data){
+            console.log('check');
+            console.log(data.payload);
+            return data.payload
+            // state.name = 'park'
+        }
+    }
+})
+
+export let { changeName } = user.actions
 
 // axios.get('/list').then((response) => {
 //     console.log(response.data)
@@ -30,7 +44,8 @@ let list = createSlice({
 export default configureStore({
     reducer: {
         career : career.reducer,
-        list : list.reducer
+        list : list.reducer,
+        user : user.reducer
     }
 })
 export let { setList } = list.actions 

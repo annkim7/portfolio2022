@@ -1,22 +1,22 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from 'axios';
 // import {useState, useEffect} from 'react';
-import { useDispatch } from "react-redux"
-import { setList } from "../store.js"
+import { changeName } from "../store.js"
 
 function List() {
   
 // let [list, setList] = useState([]);
+let state = useSelector((state) => state)
 let dispatch = useDispatch();
 
 axios.get('/list').then((결과) => {
-    dispatch(setList(결과.data));
-    // console.log(결과.data)
-  }).catch(()=>{
+  dispatch(changeName(결과.data));
+  // console.log(결과.data)
+}).catch(()=>{
   console.log('실패')
 })
 
-let list = useSelector((state) => { return state.list } )
+let list = useSelector((state) => { return state.user } )
 
 // useEffect(()=>{
 //   axios.get('/list').then((결과) => {
@@ -31,6 +31,7 @@ let list = useSelector((state) => { return state.list } )
     <section className="list">
         <h2 className="main-title">List of my portfolio</h2>
         <div className="content">
+        {state.user.title}
           <div className="list-box">
             <ul>
               <li className="head">
@@ -51,6 +52,10 @@ let list = useSelector((state) => { return state.list } )
               }
               
             </ul>
+            
+            {/* <button onClick={()=>{
+              dispatch(changeName())
+            }}>button</button> */}
           </div>
         </div>
     </section>

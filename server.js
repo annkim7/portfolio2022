@@ -28,7 +28,7 @@ app.get('/', function (request, response) {
 
 app.get('/list', function(request, response){
   db.collection('list').find().toArray(function(err, client){
-    console.log(client);
+    // console.log(client);
     response.json(client);
   })
 })
