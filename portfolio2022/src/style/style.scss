@@ -316,6 +316,9 @@ section ~ section{
     li.head{
         color: $black;
         background-color: $purpleVeryLight;
+        &:hover{
+            background-color: $purpleVeryLight;
+        }
     }
     li:hover{
         background-color: $grayVeryLight;
