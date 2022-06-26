@@ -53,9 +53,6 @@ let list = useSelector((state) => { return state.user } )
               
             </ul>
             
-            {/* <button onClick={()=>{
-              dispatch(changeName())
-            }}>button</button> */}
           </div>
         </div>
     </section>
