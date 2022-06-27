@@ -1,10 +1,21 @@
 import { useState } from 'react';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import axios from 'axios';
+import { updateList } from "../store.js"
 
 function Home() {
 
 let [tab, setTab] = useState(0);
-let a = useSelector((state) => { return state } )
+
+let dispatch = useDispatch();
+
+axios.get('/career').then((result) => {
+  dispatch(updateList(result.data));
+}).catch(()=>{
+  console.log('failure')
+})
+
+let list = useSelector((state) => { return state.list} )
 
     return (
         <>
@@ -53,9 +64,9 @@ let a = useSelector((state) => { return state } )
     function Tab(props){
       return(
         <div className="career-box">
-          <h2 className="sub-title">{a.career[props.tab].name}</h2>
+          <h2 className="sub-title">{list[props.tab]?.name}</h2>
           <div className="career">
-            {a.career[props.tab].content}
+            {list[props.tab]?.content}
           </div>
         </div>
       )
