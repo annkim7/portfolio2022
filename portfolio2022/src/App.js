@@ -4,7 +4,6 @@ import './style/style.scss';
 import Header from './components/header.js';
 import Home from './components/home.js';
 import List from './components/list.js';
-import Test from './components/test.js';
 
 function App() {
   return (
@@ -18,7 +17,6 @@ function App() {
         <Routes>
           <Route path="/" element={ <Home/> } />
           <Route path="/list" element={ <List/> } />
-          <Route path="/test" element={ <Test/> } />
         </Routes>
 
         

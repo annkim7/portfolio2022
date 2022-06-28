@@ -4,7 +4,6 @@ import { updateList } from "../store.js"
 
 function List() {
   
-// let state = useSelector((state) => state)
 let dispatch = useDispatch();
 
 axios.get('/list').then((result) => {
