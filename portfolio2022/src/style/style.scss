@@ -118,6 +118,7 @@ header .title{
 /** C O N T E N T **/
 
 .wrap{
+    overflow-y: auto;
     position: relative;
     padding: 1.6rem 3.125rem;
     background: $purpleVVeryLight;
@@ -322,5 +323,49 @@ section ~ section{
     }
     li:hover{
         background-color: $grayVeryLight;
+    }
+}
+
+/* r e s p o n s i v e */
+
+@include tablet{
+    .App{
+        grid-template-columns: 1fr 12fr;
+    }
+
+    header .title{
+        .logo{
+            @include textIndent();
+            width:2.3rem;
+            height:2.3rem;
+            padding:0;
+            
+        }
+    }
+
+    .nav-list li a{
+        @include textIndent();
+        text-indent: 180%;
+        padding: 1.6rem 1.25rem;
+        &:before{
+            padding-left:0;
+        }
+    }
+
+    .box-list{
+        grid-template-columns: auto;
+        row-gap: 1.4rem;
+    }
+
+    .full-box{
+        grid-template-columns: auto;
+    }
+
+    .career-box{
+        margin-top:1.3rem;
+    }
+
+    .list-box{
+        @include scrollX(1080px);
     }
 }
