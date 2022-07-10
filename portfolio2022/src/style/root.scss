@@ -125,22 +125,6 @@ $boxShadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6
     }
 }
 
-@mixin search($searchHeight, $btnWidth){
-    display:flex;
-    height: $searchHeight;
-    input{
-        width: calc(100% - $btnWidth);
-        height: 100%;
-        padding: 0 0.7rem;
-    }
-    span{
-        @include center;
-        width: $btnWidth;
-        height: 100%;
-        margin-left: 0.2rem;
-        cursor:pointer; 
-    }
-}
 
 
 @mixin list($titleWidth){
