@@ -181,27 +181,6 @@ $boxShadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6
 }
 
 
-@mixin tab(){
-    display:flex;
-    flex-flow: row wrap;
-    border-bottom: 1px solid var(--key-color);
-    li{
-        min-width: 7rem;
-        margin-left: -1px;
-        margin-bottom: -1px;
-        padding: 0.7rem 0;
-        font-size: 1rem;
-        text-align: center;
-        
-        border:1px solid var(--key-color);
-    }
-    li.active{
-        color: var(--white);
-        background: var(--key-color);
-    }
-}
-
-
 @mixin scrollX($minWidth){
     overflow:auto;
     ul{
